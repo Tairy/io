@@ -9,6 +9,7 @@ import java.util.Random;
  * @date 2020/11/29 下午10:00
  */
 public abstract class AbstractLoadBalancer implements LoadBalancer {
+
     protected volatile Candidate candidate;
 
     protected final Random random;
