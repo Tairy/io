@@ -7,7 +7,6 @@ package com.sqkb.singleton;
  * @date 2020/11/30 上午10:02
  */
 public class DCLSingleton {
-
     private static volatile DCLSingleton INSTANCE;
 
     private DCLSingleton() {
