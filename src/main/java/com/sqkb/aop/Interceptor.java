@@ -1,5 +1,7 @@
 package com.sqkb.aop;
 
+import java.lang.reflect.InvocationTargetException;
+
 /**
  * package: com.sqkb.aop
  *
@@ -8,15 +10,15 @@ package com.sqkb.aop;
  */
 public interface Interceptor {
 
-    public boolean before();
+    boolean before();
 
-    public void after();
+    void after();
 
-    public Object around();
+    Object around(Invocation invocation) throws InvocationTargetException, IllegalAccessException;
 
-    public void afterReturning();
+    void afterReturning();
 
-    public void afterThrowing();
+    void afterThrowing();
 
-    public boolean useAround();
+    boolean useAround();
 }
