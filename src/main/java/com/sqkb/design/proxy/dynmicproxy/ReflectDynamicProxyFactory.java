@@ -8,12 +8,12 @@ import java.lang.reflect.Proxy;
  * @author <tairy> gengrui@qury.org
  * @date 2020/12/10 上午10:29
  */
-public class DynamicProxyFactory {
+public class ReflectDynamicProxyFactory {
 
-    // 被代理对象
+    // 被代理对象 目标对象
     private Object target;
 
-    public DynamicProxyFactory(Object target) {
+    public ReflectDynamicProxyFactory(Object target) {
         this.target = target;
     }
 
