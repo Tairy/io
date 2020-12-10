@@ -1,15 +1,17 @@
-package com.sqkb.design.staticproxy;
+package com.sqkb.design.proxy.staticproxy;
+
+import com.sqkb.design.proxy.HelloService;
 
 /**
- * package: com.sqkb.design.staticproxy
+ * package: com.sqkb.design.proxy.staticproxy
  *
  * @author <tairy> gengrui@qury.org
  * @date 2020/12/10 上午10:04
  */
-public class HelloServiceProxyImpl implements HelloService {
+public class HelloServiceStaticProxyImpl implements HelloService {
     private HelloService target = null;
 
-    public HelloServiceProxyImpl(HelloService target) {
+    public HelloServiceStaticProxyImpl(HelloService target) {
         this.target = target;
     }
 
