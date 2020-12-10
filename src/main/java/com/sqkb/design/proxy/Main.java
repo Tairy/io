@@ -2,6 +2,7 @@ package com.sqkb.design.proxy;
 
 import com.sqkb.design.proxy.dynmicproxy.ReflectDynamicProxyFactory;
 import com.sqkb.design.proxy.dynmicproxy.asm.AsmProxyFactory;
+import com.sqkb.design.proxy.dynmicproxy.cglib.CglibProxyFactory;
 import com.sqkb.design.proxy.staticproxy.HelloServiceStaticProxyImpl;
 
 import java.lang.reflect.Constructor;
@@ -18,6 +19,7 @@ public class Main {
         testStaticProxy();
         testDynamicProxy();
         testAsmDynamicProxy();
+        testCglibDynamicProxy();
     }
 
     public static void testStaticProxy() {
@@ -27,7 +29,7 @@ public class Main {
     }
 
     public static void testDynamicProxy() {
-//        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
         HelloService target = new HelloServiceImpl();
         ReflectDynamicProxyFactory reflectDynamicProxyFactory = new ReflectDynamicProxyFactory(target);
         HelloService proxyInstance = (HelloService) reflectDynamicProxyFactory.getProxyInstance();
@@ -51,5 +53,12 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void testCglibDynamicProxy() {
+        HelloServiceImpl target = new HelloServiceImpl();
+        CglibProxyFactory cglibProxyFactory = new CglibProxyFactory(target);
+        HelloServiceImpl proxyInstance = (HelloServiceImpl) cglibProxyFactory.getProxyInstance();
+        proxyInstance.say("Da Yin");
     }
 }
