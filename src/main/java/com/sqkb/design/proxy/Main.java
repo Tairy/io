@@ -58,6 +58,7 @@ public class Main {
     public static void testCglibDynamicProxy() {
         HelloServiceImpl target = new HelloServiceImpl();
         CglibProxyFactory cglibProxyFactory = new CglibProxyFactory(target);
+//        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "./");
         HelloServiceImpl proxyInstance = (HelloServiceImpl) cglibProxyFactory.getProxyInstance();
         proxyInstance.say("Da Yin");
     }
